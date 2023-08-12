@@ -14,7 +14,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 CardWidget
 
 import "./NavbarBar.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { CardWidget } from '../CardWidget/CardWidget';
 
 
@@ -27,7 +27,7 @@ export const NavbarBar = () => {
         <Container className="navbar-container">
          
 
-          <Navbar.Brand as={Link} to={"/"} className="navbar-brand-titulo">Erland EPP</Navbar.Brand>
+          <Navbar.Brand as={NavLink} to={"/"} className="navbar-brand-titulo">Erland EPP</Navbar.Brand>
           
 
           
@@ -36,25 +36,25 @@ export const NavbarBar = () => {
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={Link} to ="/">Todos Los Productos</Nav.Link>
-              <Nav.Link as={Link} to={"nosotros"}>Nosotros</Nav.Link>
-              <Nav.Link as={Link} to={"conocenos"}>Conocenos</Nav.Link>
-              <Nav.Link as={Link} to={"contactanos"}>Contáctanos</Nav.Link>
+              <Nav.Link as={NavLink} to ="/">Todos Los Productos</Nav.Link>
+              <Nav.Link as={NavLink} to={"nosotros"}>Nosotros</Nav.Link>
+              <Nav.Link as={NavLink} to={"conocenos"}>Conocenos</Nav.Link>
+              <Nav.Link as={NavLink} to={"contactanos"}>Contáctanos</Nav.Link>
 
           
 
               <NavDropdown title="Products" id="basic-nav-dropdown">
-                <NavDropdown.Item as={Link} to={"category/auditiva"}>
+                <NavDropdown.Item as={NavLink} to={"category/auditiva"} >
                   Proteccion Auditiva
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"category/cabeza"}>
+                <NavDropdown.Item as={NavLink} to={"category/cabeza"}>
                   Proteccion de Cabeza
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to={"category/manos"}>
+                <NavDropdown.Item as={NavLink} to={"category/manos"}>
                   Protección de Manos
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to={"ofertas/true"}>Ofertas</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to={"ofertas/true"}>Ofertas</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

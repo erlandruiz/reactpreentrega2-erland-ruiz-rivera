@@ -27,8 +27,8 @@ export const Ofertas = () => {
   return (
     <div>
         <div className="container">
-            <h5>{isLoading ? 'Cargando...': 'Listo'}</h5>
-            <ItemListContainer products={products}/>
+            
+            <ItemListContainer products={products} loading={isLoading}/>
         </div>
         
     </div>

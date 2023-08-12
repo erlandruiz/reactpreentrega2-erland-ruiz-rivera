@@ -1,28 +1,30 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 import { getEpps } from "../lib/epps.requests";
 import { ItemListContainer } from "../components/ItemListContainer/ItemListContainer";
-
+import { Loader } from "../components/Loader/Loader";
 
 export const Home = () => {
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true)
+  useEffect(() => {
+    // cargarData()
+    getEpps().then((res) => {
+      setIsLoading(false);
+      setProducts(res);
+    });
+  }, []);
 
-    useEffect(() => {
-      getEpps()
-      .then(res=>{
-        setIsLoading(false);
-        setProducts(res)
-      })
-    
-     
-    }, [])
-    
   return (
-    <div className="container">
-        <h5>{isLoading ? 'Cargando...' : 'Listo'}</h5>
-        <ItemListContainer products={products}/>
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="container">
+          <ItemListContainer products={products} />
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};

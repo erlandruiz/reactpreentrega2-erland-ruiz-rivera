@@ -10,6 +10,8 @@ import { Nosotros } from './pages/Nosotros';
 import { Conocenos } from './pages/Conocenos';
 import { Contactanos } from './pages/Contactanos';
 import './App.scss';
+import { CartProvider } from './state/Cart.context';
+import { Cart } from './pages/Cart';
 
 
 const routes = createBrowserRouter(
@@ -20,6 +22,7 @@ const routes = createBrowserRouter(
       <Route path='/category/:id' element={<Category/>}/>
       <Route path='/ofertas/:id' element={<Ofertas/>}/>
       <Route path='/nosotros' element={<Nosotros/>}/>
+      <Route path='/cart' element={<Cart/>}/>
       <Route path='/conocenos' element={<Conocenos/>}/>
       <Route path='/contactanos' element={<Contactanos/>}/>
 
@@ -36,7 +39,11 @@ function App() {
   
     <div className='app'>
 
+      <CartProvider>
       <RouterProvider router={routes}/>
+
+      </CartProvider>
+
 
       
     </div>
